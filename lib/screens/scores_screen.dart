@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:quiz/models/upload_scores.dart';
+import 'package:share/share.dart';
 
 class ScoresScreen extends StatelessWidget {
   const ScoresScreen({Key? key, required this.code}) : super(key: key);
@@ -24,12 +25,30 @@ class ScoresScreen extends StatelessWidget {
                   ))
                 : Padding(
                     padding: const EdgeInsets.all(20.0),
-                    child: ListView.builder(
-                      itemBuilder: (context, index) => ScoreItem(
-                          name: fetchedScores.keys.toList()[index].toString(),
-                          score:
-                              fetchedScores.values.toList()[index].toString()),
-                      itemCount: fetchedScores.length,
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: ListView.builder(
+                            itemBuilder: (context, index) => ScoreItem(
+                                name: fetchedScores.keys
+                                    .toList()[index]
+                                    .toString(),
+                                score: fetchedScores.values
+                                    .toList()[index]
+                                    .toString()),
+                            itemCount: fetchedScores.length,
+                          ),
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            Share.share(fetchedScores.toString());
+                          },
+                          style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.deepOrange)),
+                          child: const Text('Export Results'),
+                        )
+                      ],
                     ),
                   )
             : const Center(child: CircularProgressIndicator()),
