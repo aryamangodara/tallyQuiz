@@ -36,9 +36,7 @@ Future createQuiz(
       },
     ),
   );
-  print('step 1');
   await updateUserQuiz(code);
-  print(response.body);
   return response.statusCode;
 }
 
@@ -54,12 +52,10 @@ Future updateUserQuiz(int code) async {
     list = responseList;
   }
   list.add(code);
-  print(list);
   final response = await http.put(
     url,
     body: jsonEncode({'codes': list}),
   );
-  print(response.body);
   return response.statusCode;
 }
 
@@ -68,7 +64,6 @@ Future isCodeUnique(int code) async {
       'https://quiz-app-755eb-default-rtdb.asia-southeast1.firebasedatabase.app/quizes/$code.json');
   final response = await http.get(url);
   final responseData = jsonDecode(response.body);
-  print(responseData);
   if (responseData == null) {
     return true;
   }

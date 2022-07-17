@@ -1,10 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:quiz/models/local_storage.dart';
-import 'package:quiz/models/my_quiz.dart';
 import 'package:quiz/models/upload_scores.dart';
 
 class QuizAfterCode extends StatefulWidget {

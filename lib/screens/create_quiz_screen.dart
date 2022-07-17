@@ -17,21 +17,36 @@ class _CreateQuizScreenState extends State<CreateQuizScreen> {
 
   String? _answer1;
   String? _answer2;
-  String? _answer3;
+  // String? _answer3;
   final _question1Controller = TextEditingController();
   final _codeController = TextEditingController();
   final _titleController = TextEditingController();
   final _question2Controller = TextEditingController();
-  final _question3Controller = TextEditingController();
+  // final _question3Controller = TextEditingController();
   final _a1Controller = TextEditingController();
   final _b1Controller = TextEditingController();
   final _c1Controller = TextEditingController();
   final _a2Controller = TextEditingController();
   final _b2Controller = TextEditingController();
   final _c2Controller = TextEditingController();
-  final _a3Controller = TextEditingController();
-  final _b3Controller = TextEditingController();
-  final _c3Controller = TextEditingController();
+  // final _a3Controller = TextEditingController();
+  // final _b3Controller = TextEditingController();
+  // final _c3Controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _question1Controller.dispose();
+    _codeController.dispose();
+    _titleController.dispose();
+    _question2Controller.dispose();
+    _a1Controller.dispose();
+    _b1Controller.dispose();
+    _c1Controller.dispose();
+    _a2Controller.dispose();
+    _b2Controller.dispose();
+    _c2Controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

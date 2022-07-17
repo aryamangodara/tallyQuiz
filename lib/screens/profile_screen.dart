@@ -32,7 +32,7 @@ class ProfileScreen extends StatelessWidget {
         ),
         const SizedBox(height: 60),
         const Text('Total Quiz Attempted'),
-        QuizCounter(),
+        const QuizCounter(),
         const SizedBox(height: 30),
         ElevatedButton(
           onPressed: () {

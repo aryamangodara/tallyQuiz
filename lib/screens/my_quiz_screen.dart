@@ -113,8 +113,8 @@ class MyQuizItem extends StatelessWidget {
                       );
                       AlertDialog alert = AlertDialog(
                         title: const Text("Alert"),
-                        content: const Text(
-                            "Do you really want to end this quiz !!"),
+                        content:
+                            const Text("Do you really want to end this quiz?"),
                         actions: [yesButton, noButton],
                       );
                       showDialog(
@@ -161,7 +161,7 @@ class MyQuizItem extends StatelessWidget {
                       AlertDialog alert = AlertDialog(
                         title: const Text("Alert"),
                         content:
-                            const Text("Do you want to restart this quiz !!"),
+                            const Text("Do you want to restart this quiz?"),
                         actions: [yesButton, noButton],
                       );
                       showDialog(

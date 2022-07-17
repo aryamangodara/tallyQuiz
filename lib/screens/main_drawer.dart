@@ -34,7 +34,7 @@ class MainDrawer extends StatelessWidget {
           // ),
           const Expanded(child: Text('')),
           const Text('Made with ❤ by Aryaman Godara'),
-          SizedBox(height: 1)
+          const SizedBox(height: 1)
         ],
       ),
     );

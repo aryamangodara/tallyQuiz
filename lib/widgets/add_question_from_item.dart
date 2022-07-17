@@ -37,7 +37,6 @@ class _QuestionItemState extends State<QuestionItem> {
             if (value == '') {
               return 'This is required';
             }
-            // return '';
           },
         ),
         const SizedBox(height: 10),
@@ -52,7 +51,6 @@ class _QuestionItemState extends State<QuestionItem> {
                   if (value == '') {
                     return 'This is required';
                   }
-                  // return '';
                 },
               ),
             ),
@@ -86,7 +84,6 @@ class _QuestionItemState extends State<QuestionItem> {
                   if (value == '') {
                     return 'This is required';
                   }
-                  // return '';
                 },
               ),
             ),
