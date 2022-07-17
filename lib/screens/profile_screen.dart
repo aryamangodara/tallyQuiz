@@ -5,21 +5,10 @@ import 'package:quiz/models/auth.dart';
 
 import '../models/local_storage.dart';
 
-class ProfileScreen extends StatefulWidget {
+class ProfileScreen extends StatelessWidget {
   ProfileScreen({Key? key}) : super(key: key);
 
-  @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
-}
-
-class _ProfileScreenState extends State<ProfileScreen> {
   final user = FirebaseAuth.instance.currentUser!;
-
-  @override
-  void initState() {
-    getTotalQuizAttempted();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +32,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         const SizedBox(height: 60),
         const Text('Total Quiz Attempted'),
-        Text(
-          '$totalQuizAttempted',
-          style: const TextStyle(color: Colors.grey, fontSize: 50),
-        ),
+        QuizCounter(),
         const SizedBox(height: 30),
         ElevatedButton(
           onPressed: () {
@@ -60,5 +46,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
       ],
     ));
+  }
+}
+
+class QuizCounter extends StatefulWidget {
+  const QuizCounter({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<QuizCounter> createState() => _QuizCounterState();
+}
+
+class _QuizCounterState extends State<QuizCounter> {
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: getTotalQuizAttempted(),
+      builder: (context, snapshot) =>
+          snapshot.connectionState == ConnectionState.done
+              ? Text(
+                  '$totalQuizAttempted',
+                  style: const TextStyle(color: Colors.grey, fontSize: 50),
+                )
+              : const Center(
+                  child: CircularProgressIndicator(),
+                ),
+    );
   }
 }
